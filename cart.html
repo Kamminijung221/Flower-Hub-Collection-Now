@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>🛍️ Add to Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body style="
+background:#ffe4ec;
+text-align:center;
+">
+
+<!-- เมนู -->
+<div class="menu">
+
+<a href="index.html" class="mainbutton">🏠 หน้าแรก</a>
+<a href="flower.html" class="mainbutton">🌷 ดอกไม้</a>
+<a href="cart.html" class="mainbutton">🛒 ตะกร้า</a>
+<a href="howto.html" class="mainbutton">📦 วิธีสั่งซื้อ</a>
+<a href="about.html" class="mainbutton">💖 เกี่ยวกับฉัน</a>
+<a href="Developer.html" class="mainbutton">👩‍💻 ผู้จัดทำ</a>
+
+</div>
+
+
+<style>
+.popup{
+display:none;
+font-size:22px;
+font-weight:bold;
+color:#ff69b4;
+margin-top:15px;
+animation:bounce 0.8s;
+}
+
+@keyframes bounce{
+0%{
+transform:scale(0);
+opacity:0;
+}
+
+50%{
+transform:scale(1.2);
+opacity:1;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+</style>
+
+<script>
+
+let qty=1;
+let price=25;
+
+function addToCart(){
+
+document.getElementById("cartMessage").style.display="block";
+
+const params = new URLSearchParams(window.location.search);
+
+params.set("qty", qty);
+params.set("price", price * qty);
+
+setTimeout(function(){
+    window.location.href = "order.html?" + params.toString();
+},1000);
+
+}
+
+window.onload=function(){
+
+const params=new URLSearchParams(window.location.search);
+
+const name=params.get("name");
+price=parseInt(params.get("price"));
+
+const img=params.get("img");
+
+if(name){
+
+document.getElementById("flowerName").innerHTML=name;
+document.getElementById("flowerPrice").innerHTML="ราคา "+price+" บาท";
+document.getElementById("flowerImg").src=img;
+
+}
+
+}
+
+// 👇 ใส่ตรงนี้เลย
+function updatePrice(){
+
+document.getElementById("qty").innerHTML=qty;
+
+document.getElementById("flowerPrice").innerHTML=
+"ราคา "+(price*qty)+" บาท";
+
+}
+
+function plus(){
+
+qty++;
+
+updatePrice();
+
+}
+
+function minus(){
+
+if(qty>1){
+
+qty--;
+
+updatePrice();
+
+}
+
+}
+
+</script>
+
+<img id="flowerImg" src="lily.jpg"
+style="
+width:90%;
+max-width:180px;
+animation:float 3s ease-in-out infinite;
+border-radius:25px;
+box-shadow:
+0 0 20px pink,
+0 0 40px #ffb6c1;
+">
+
+<h2 id="flowerName" style="
+color:#ff69b4;
+font-size:30px;
+padding:15px;
+width:90%;
+max-width:420px;
+margin:auto;
+border-radius:25px;
+background:#fff0f5;
+box-shadow:
+0 0 20px pink,
+0 0 40px #ffb6c1;
+">
+🌷 ดอกลิลลี่กำมะหยี่สีชมพู 🌷
+</h2>
+
+<div style="margin:20px;">
+
+<button onclick="minus()"
+style="
+width:40px;
+height:40px;
+font-size:22px;
+border-radius:50%;
+border:none;
+background:#ffb6d9;
+color:white;
+cursor:pointer;
+">
+➖
+</button>
+
+<span id="qty"
+style="
+font-size:24px;
+margin:0 20px;
+font-weight:bold;
+">
+1
+</span>
+
+<button onclick="plus()"
+style="
+width:40px;
+height:40px;
+font-size:22px;
+border-radius:50%;
+border:none;
+background:#ff69b4;
+color:white;
+cursor:pointer;
+">
+➕
+</button>
+
+</div>
+
+<p id="flowerPrice">
+ราคา 25 บาท
+</p>
+
+<button
+onclick="addToCart()"
+style="
+background:linear-gradient(#ffb6d9,#ff69b4);
+color:white;
+padding:15px 35px;
+border-radius:50px;
+border:3px solid white;
+font-weight:bold;
+font-size:20px;
+cursor:pointer;
+box-shadow:
+0 0 15px pink,
+0 0 30px #ffb6c1;
+transition:0.3s;
+">
+🛍️ เพิ่มลงตะกร้าสินค้า
+</button>
+
+<p id="cartMessage" class="popup">
+💖 เพิ่มสินค้าลงตะกร้าแล้วค่ะ 🌷
+</p>
+
+<br>
+
+<a href="flower.html"
+class="backbutton"
+style="
+background:linear-gradient(#ffd6e7,#ff9fc5);
+color:white;
+padding:15px 35px;
+font-size:20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+border:3px solid white;
+box-shadow:
+0 0 15px pink,
+0 0 30px #ffb6c1;
+display:inline-block;
+">
+🌷 กลับไปเลือกสินค้า 🌷
+</a>
+
+<audio id="bgmusic" loop>
+    <source src="flower.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()">
+🌸🎵 Play Music
+</button>
+
+<script>
+const music = document.getElementById("bgmusic");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+        btn.innerHTML="🌸⏸ Pause Music";
+    }else{
+        music.pause();
+        btn.innerHTML="🌸🎵 Play Music";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+body{
+    background-color:#ffe4ec;
+    text-align:center;
+    font-family:Tahoma;
+}
+a{
+    background:#ffb6c1;
+    padding:10px 18px;
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:hotpink;
+    box-shadow:0 0 20px pink;
+}
+
+a{
+    color:#ff1493;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#ff69b4;
+}
+
+h1,h2{
+    color:#d46a92;
+}
+
+img:hover{
+    transform:scale(1.05);
+    transition:0.3s;
+}
+img{
+    transition:0.3s;
+}
+
+img:hover{
+    transform:scale(1.08) rotate(-2deg);
+    box-shadow:0 0 25px hotpink,
+               0 0 50px pink;
+}
+h1{
+    transition:0.3s;
+}
+
+h1:hover{
+    transform:scale(1.05);
+    text-shadow:
+    0 0 10px pink,
+    0 0 20px hotpink;
+}
+a{
+    transition:0.3s;
+}
+
+a:hover{
+    color:#ff69b4;
+    transform:scale(1.1);
+    display:inline-block;
+    text-shadow:
+    0 0 10px pink,
+    0 0 20px hotpink;
+}
+.mainbutton{
+    font-size:20px;
+    transition:0.3s;
+}
+
+.mainbutton:hover{
+    transform:scale(1.15);
+    text-shadow:
+    0 0 10px pink,
+    0 0 20px hotpink,
+    0 0 30px #ffb6c1;
+}
+div:hover{
+    transform:translateY(-5px);
+    transition:0.3s;
+}
+h3{
+    color:#ff1493;
+    text-shadow:0 0 8px pink;
+}
+
+p{
+    line-height:1.8;
+}
+
+b{
+    color:#d46a92;
+}
+.lilypic{
+    border-radius:20px;
+    margin:10px;
+    box-shadow:
+    0 0 20px pink,
+    0 0 40px #ffb6c1;
+}
+.melo{
+    border-radius:20px;
+    filter:drop-shadow(0 0 15px pink);
+}
+.buybutton{
+background:#ff69b4;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 5px 10px pink;
+transition:all 0.2s ease;
+}
+
+.buybutton:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px hotpink;
+}
+
+.buybutton:active{
+transform:scale(0.9);
+box-shadow:0 2px 5px pink;
+}
+.buybutton{
+background:#ff69b4;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 5px 10px pink;
+transition:0.2s;
+}
+
+a:hover{
+transform:scale(1.05);
+}
+
+a:active{
+transform:scale(0.9);
+}
+.backbutton{
+transition:0.3s;
+}
+
+.backbutton:hover{
+transform:scale(1.05);
+}
+
+.backbutton:active{
+transform:scale(0.95);
+}
+a{
+transition:0.2s;
+}
+
+a:hover{
+transform:scale(1.05);
+}
+
+.buybutton{
+}
+.popup{
+display:none;
+font-size:28px;
+font-weight:bold;
+color:#ff69b4;
+margin-top:20px;
+text-shadow:
+0 0 10px pink,
+0 0 20px #ffb6c1;
+animation:bounce 1s;
+}
+img{
+transition:0.4s;
+}
+
+img:hover{
+transform:translateY(-8px) scale(1.08) rotate(-2deg);
+
+box-shadow:
+0 0 25px hotpink,
+0 0 50px pink;
+}
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+.lilyfloat{
+animation:float 3s ease-in-out infinite;
+border-radius:25px;
+box-shadow:
+0 0 20px pink,
+0 0 40px #ffb6c1;
+}
+*{
+    cursor: url("tulip.png"), auto;
+}
+
+a:hover,
+button:hover{
+    cursor:url("tulip.png") 4 4, pointer;
+}
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+margin:20px;
+flex-wrap:wrap;
+}
+
+.menu a{
+background:linear-gradient(#ffd6e7,#ff9fc5);
+color:white;
+padding:12px 22px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:
+0 0 10px pink,
+0 0 20px #ffb6c1;
+transition:0.3s;
+}
+
+.menu a:hover{
+transform:translateY(-3px) scale(1.05);
+}
+body{
+background:#ffe4ec;
+position:relative;
+}
+
+body::before{
+content:"🌷 🌸 🌷 🌸";
+font-size:60px;
+position:fixed;
+top:20px;
+left:20px;
+opacity:0.15;
+pointer-events:none;
+}
+
+body::after{
+content:"🌸 🌷 🌸 🌷";
+font-size:60px;
+position:fixed;
+bottom:20px;
+right:20px;
+opacity:0.15;
+pointer-events:none;
+}
+.handmade {
+    color: #d46a92;
+    font-style: italic;
+    font-size: 18px;
+}
+.handmade{
+    color:#d46a92;
+    font-style:italic;
+    font-size:18px;
+    margin-top:15px;
+}
+#musicBtn{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+background:linear-gradient(#ffd6ec,#ff8fc4);
+
+color:white;
+
+border:none;
+
+padding:12px 22px;
+
+border-radius:40px;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px pink;
+
+transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px #ff69b4;
+
+}
+.enter-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff4fa3, #ff9ad5);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255,79,163,0.6);
+  animation: pop 1.2s infinite;
+  margin-top: 20px;
+}
+
+.enter-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pop {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+#start {
+  z-index: 10;
+}
+
+#game {
+  z-index: 5;
+}
+
+#intro {
+  z-index: 20;
+}

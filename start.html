@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flower Hub RPG Start</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  overflow: hidden;
+  background: black;
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+/* START */
+#start {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #2b0030, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+}
+
+/* LOADING */
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffe0f0, #e0f7ff);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 30;
+}
+
+/* GAME */
+#game {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffe6f2, #e6f7ff);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* NPC */
+.npc {
+  font-size: 70px;
+  animation: float 1.2s infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+/* DIALOG */
+.dialog {
+  margin-top: 20px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  min-width: 250px;
+
+  width:90%;
+  max-width:500px;
+  box-sizing:border-box;
+
+  text-align: center;
+}
+
+/* BUTTON */
+button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4fa3;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  🌸 Flower Hub 🌸
+  <div style="font-size:14px;">opening world...</div>
+</div>
+
+<!-- START -->
+<div id="start">
+  <h1 style="color:white;">PRESS START</h1>
+  <button onclick="startGame()">START</button>
+</div>
+
+<!-- LOADING -->
+<div id="loading">
+  <h2>Loading world...</h2>
+  <div>🐰</div>
+</div>
+
+<!-- GAME -->
+<div id="game">
+  <div class="npc">🐰</div>
+  <div class="dialog" id="dialog">...</div>
+
+  <button onclick="enterSite()">🌸 Enter Website</button>
+</div>
+
+<script>
+
+/* กัน intro ค้าง */
+setTimeout(() => {
+  document.getElementById("intro").style.display = "none";
+}, 1800);
+
+/* START */
+function startGame() {
+  document.getElementById("start").style.display = "none";
+  document.getElementById("loading").style.display = "flex";
+
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("game").style.display = "flex";
+    npcTalk();
+  }, 2000);
+}
+
+/* NPC พูดแบบพิมพ์ */
+let lines = [
+  "สวัสดีฉัน ฐิฏิรัตน์ แสงทองอ่อน นี้คือเว็บไซค์ของฉัน ยินดีต้อนรับ 🌸",
+  "โลกนี้คือ Flower Hub",
+  "พร้อมแล้วใช่ไหม?"
+];
+
+let i = 0;
+let j = 0;
+
+function npcTalk() {
+  let text = lines[i];
+  let dialog = document.getElementById("dialog");
+  dialog.innerHTML = "";
+
+  let typing = setInterval(() => {
+    dialog.innerHTML += text[j];
+    j++;
+
+    if (j >= text.length) {
+      clearInterval(typing);
+      j = 0;
+      i++;
+
+      if (i < lines.length) {
+        setTimeout(npcTalk, 1200);
+      }
+    }
+  }, 40);
+}
+
+/* เข้าเว็บ */
+function enterSite() {
+  // เอฟเฟกต์ fade
+  document.body.style.transition = "1s";
+  document.body.style.opacity = "0";
+
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 900);
+}
+
+</script>
+<audio id="bgm" autoplay loop>
+    <source src="flower.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>

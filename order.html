@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>สั่งซื้อสินค้า</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="
+background:#ffe4ec;
+text-align:center;
+">
+
+<!-- เมนู -->
+<div class="menu">
+
+<a href="index.html" class="mainbutton">🏠 หน้าแรก</a>
+<a href="flower.html" class="mainbutton">🌷 ดอกไม้</a>
+<a href="cart.html" class="mainbutton">🛒 ตะกร้า</a>
+<a href="howto.html" class="mainbutton">📦 วิธีสั่งซื้อ</a>
+<a href="about.html" class="mainbutton">💖 เกี่ยวกับฉัน</a>
+<a href="Developer.html" class="mainbutton">👩‍💻 ผู้จัดทำ</a>
+
+</div>
+<body style="
+background-color:#ffe4ec;
+text-align:center;
+">
+
+<h1 style="
+color:#ff1493;
+background:white;
+padding:15px;
+width:90%;
+max-width:430px;
+margin:auto;
+border-radius:20px;
+margin-top:30px;
+">
+💖 สั่งซื้อสินค้า 💖
+</h1>
+
+<br>
+
+<div style="
+background:white;
+width:500px;
+margin:auto;
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 15px pink;
+">
+<img id="flowerImg" src="" width="250">
+<h2 id="flowerName"></h2>
+<p id="flowerPrice"></p>
+<p>
+ชื่อผู้สั่งซื้อ
+</p>
+
+<input type="text"
+placeholder="กรอกชื่อ"
+style="
+padding:10px;
+width:250px;
+border-radius:15px;
+border:2px solid pink;
+">
+
+<br><br>
+
+<button
+class="buybutton"
+onclick="alert('💖 ขอบคุณที่สั่งซื้อดอกลิลลี่กับ FlowerHub 💖')">
+ยืนยันการสั่งซื้อ
+</button>
+
+<br><br>
+
+<a href="index.html">
+🏠 กลับหน้าแรก
+</a>
+<script>
+window.onload = function(){
+
+    const params = new URLSearchParams(window.location.search);
+
+    const name = params.get("name");
+    const qty = params.get("qty");
+    const price = params.get("price");   // ⭐ เพิ่มบรรทัดนี้
+    const img = params.get("img");
+
+    if(name){
+
+        document.getElementById("flowerName").innerHTML =
+        "🌷 " + name + " 🌷";
+
+        document.getElementById("flowerPrice").innerHTML =
+        `
+        จำนวน : ${qty} ดอก<br>
+        ราคารวม : ${price} บาท
+        `;
+
+        document.getElementById("flowerImg").src = img;
+
+    }
+
+}
+</script>
+<audio id="bgm" autoplay loop>
+    <source src="flower.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>
